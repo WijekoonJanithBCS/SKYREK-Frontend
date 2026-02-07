@@ -1,0 +1,91 @@
+# =====================
+# Node.js / Express
+# =====================
+
+# Node modules
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Logs
+logs/
+*.log
+*.log.*
+/logs/
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# PM2
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage
+coverage/
+*.lcov
+
+# =====================
+# React
+# =====================
+
+# Build output
+build/
+dist/
+
+# React Native
+.expo/
+*.expo.js
+
+# Cache
+.cache/
+.next/
+.out/
+
+# Storybook
+.storybook/
+
+# =====================
+# MongoDB / Database
+# =====================
+
+# Database files (local)
+*.db
+*.sqlite
+dump/
+*.dump
+
+# =====================
+# OS / IDE
+# =====================
+
+# MacOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# JetBrains
+.idea/
+
+# =====================
+# Optional / Misc
+# =====================
+
+# Temporary files
+*.tmp
+*.temp
+*.swp

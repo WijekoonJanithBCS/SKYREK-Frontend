@@ -16,8 +16,6 @@ const app = express();
 
 app.use(express.json());
 
-
-
 app.get(
     '/',(req, res) => {
         console.log('Get request received');

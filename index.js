@@ -1,5 +1,6 @@
 import express from 'express';
 import mongoose from "mongoose";
+import Student from './models/student.js';
 
 const mongoURI = "mongodb+srv://admin:1234@cluster0.q4556dw.mongodb.net/?appName=Cluster0"
 
@@ -25,8 +26,19 @@ app.get(
 
 app.post(
     '/',(req, res) => {
-       console.log(req.body);
-       res.json({message: 'Data received successfully'});
+      const student = new Student({
+        name: req.body.name,
+        city: req.body.city,
+        age: req.body.age
+      });
+        student.save()
+    }
+)
+
+app.delete(
+    '/',(req, res) => {
+        console.log('Delete request received');
+        res.json({message: 'Delete request received successfully'});
     }
 )
 

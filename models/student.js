@@ -1,11 +1,11 @@
-import mogoose from 'mongoose';
+import mongoose from 'mongoose';
 
-const studentSchema = new mogoose.Schema({
+const studentSchema = new mongoose.Schema({
     name: String,
     city: String,
     age: Number
     
 })
-const Student = mogoose.model('Student', studentSchema);
+const Student = mongoose.model('Student', studentSchema);
 
 export default Student;

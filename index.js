@@ -1,8 +1,6 @@
 import express from 'express';
 import mongoose from "mongoose";
-import studentRouter from './router/studentRouter.js';
-import teacherRouter from './router/teacherRouter.js';
-import parentRouter from './router/parentRouter.js';
+import userRouter from './router/userRouter.js';
 
 
 const mongoURI = "mongodb+srv://admin:1234@cluster0.q4556dw.mongodb.net/?appName=Cluster0"
@@ -20,11 +18,8 @@ const app = express();
 
 app.use(express.json());
 
-app.use('/students', studentRouter);
+app.use("/users", userRouter);
 
-app.use('/teachers', teacherRouter);
-
-app.use('/parents', parentRouter);
 
 app.listen(3000, () => {
     console.log('Server is running on port 3000');

@@ -16,7 +16,7 @@ export function createUser(req, res) {
         })
         .catch (()=>
             res.json({
-                message: 'Error creating user',
+                message: 'user not created.an error occurred',
                 
             })
 

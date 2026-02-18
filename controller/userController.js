@@ -30,7 +30,7 @@ export function loginUsers(req, res) {
     User.findOne({ email: req.body.email })
         .then((user)=> {
             if(user==null){
-                res.json({
+                res.status(401).json({
                     message: 'user not found',
         }
         )  
@@ -38,7 +38,7 @@ export function loginUsers(req, res) {
             else {
                 const isPasswordValid = bcrypt.compareSync(req.body.password, user.password);
                 console.log(isPasswordValid);
-                res.json({
+                res.status(200).json({
                     message: isPasswordValid ? 'Login successful' : 'Invalid password',
                 });
             }

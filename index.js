@@ -2,44 +2,30 @@ import express from 'express';
 import mongoose from "mongoose";
 import userRouter from './router/userRouter.js';
 import productRouter from './router/productRouter.js';
+import jwt from 'jsonwebtoken';
+import authorizeUser from './controller/Lib/jwtMiddleware.js';
 
+const mongoURI = "mongodb+srv://admin:1234@cluster0.q4556dw.mongodb.net/?appName=Cluster0";
 
-const mongoURI = "mongodb+srv://admin:1234@cluster0.q4556dw.mongodb.net/?appName=Cluster0"
-
-mongoose.connect(mongoURI).then(() => {
+mongoose.connect(mongoURI)
+.then(() => {
     console.log('Connected to MongoDB');
-}
-)
-.catch( (error)=> {
-    console.error('Error connecting to MongoDB:', error );
-}
-);
+})
+.catch((error) => {
+    console.error('Error connecting to MongoDB:', error);
+});
 
 const app = express();
 
 app.use(express.json());
 
-app.use((req, res, next)=> {
-
-    const header=req.headers['authorization'];
-
-    if(header != null){
-        const token = header.replace("Bearer ", "");
-        console.log(token);
-    }
-    next();
-    }
-    
-);
-   
-
-   
+app.use(
+    authorizeUser
+);   
 
 app.use("/users", userRouter);
-
 app.use("/products", productRouter);
-
 
 app.listen(3000, () => {
     console.log('Server is running on port 3000');
-})
+});
